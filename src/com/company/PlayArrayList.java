@@ -6,32 +6,39 @@ import java.util.Scanner;
 public class PlayArrayList {
     private ArrayList<String> groceryItems = new ArrayList<>();
 
-    public void addGroseryItems(String item){
+    private void addGroseryItems(String item){
         groceryItems.add(item);
         System.out.println("Item: (" + item + ") added successfully.");
     }
-    public void printGroceryList(){
+    private void printGroceryList(){
         System.out.println("The list have " +groceryItems.size()+ " items.");
         for (int i = 0 ; i<groceryItems.size(); i++){
             System.out.println("item "+(i+1)+" "+groceryItems.get(i));
         }
     }
-    public void modifyGroceryItem(String newItem, int itemId){
+    private void modifyGroceryItem(String newItem){
+        int itemId= getItemIdByItem(newItem);
+        if (itemId>=0) modifyGroceryItem(newItem, itemId);
+        else System.out.println("Item not found.");
+    }
+    private void modifyGroceryItem(String newItem, int itemId){
         groceryItems.set(itemId, newItem);
         System.out.println("grocery Item number: "+(itemId+1)+" has been modified");
     }
-    public void removeGroceryItem(int itemID){
+    private void removeGroceryItem(int itemID){
         groceryItems.remove(itemID);
         System.out.println("Item number "+itemID+" has been removed successfully.");
     }
-    public String getItem(String searchFor){
-//        boolean isExistItem = groceryItems.contains(searchFor);
+    private String getItem(String searchFor){
         int itemId = groceryItems.indexOf(searchFor);
         if (itemId>=0){
             return groceryItems.get(itemId);
         }return null;
     }
-    public void printOptions(){
+    private int getItemIdByItem(String item){
+        return groceryItems.indexOf(item);
+    }
+    private void printOptions(){
         System.out.println(
                 "\n The Options:\n" +
                         "\t 0 - To print options.\n"+
@@ -43,7 +50,7 @@ public class PlayArrayList {
                         "\t 6 - To quit the application.\n"
         );
     }
-    public void doChoices(){
+    public void startUp(){
         printOptions();
         Scanner scanner = new Scanner(System.in);
         boolean active = true;
