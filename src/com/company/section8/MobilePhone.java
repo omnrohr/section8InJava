@@ -1,6 +1,5 @@
-package com.company;
+package com.company.section8;
 
-import javax.swing.plaf.IconUIResource;
 import java.util.ArrayList;
 
 public class MobilePhone {

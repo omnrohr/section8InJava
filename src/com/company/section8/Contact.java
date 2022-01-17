@@ -1,4 +1,4 @@
-package com.company;
+package com.company.section8;
 
 public class Contact {
     private String name;

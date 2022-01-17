@@ -1,16 +1,11 @@
-package com.company.section9.saveavlech;
+package com.company.section9.savable;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Player tim = new Player("tim", 50,30);
-        saveObject(tim);
-        tim.setHitPoint(8);
-        saveObject(tim);
-        loadObject(tim);
-        System.out.println(tim);
+
     }
     public static ArrayList<String> readValues() {
         ArrayList<String> values = new ArrayList<String>();
@@ -40,14 +35,4 @@ public class Main {
         }
         return values;
     }
-    public static void saveObject (ISaveAble objectToSave){
-        for (int i=0; i<objectToSave.write().size(); i++){
-            System.out.println("Saving "+ objectToSave.write().get(i)+" to storage device");
-        }
-    }
-    public static void loadObject (ISaveAble objectToLoad){
-        ArrayList<String>values = readValues();
-        objectToLoad.read(values);
-    }
 }
-

@@ -1,4 +1,4 @@
-package com.company;
+package com.company.section8;
 public class Song {
     private String title;
     private double duration;
